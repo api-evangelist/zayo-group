@@ -4,143 +4,46 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Zayo Group Holdings
 providerId: zayo-group
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Fiber
   - Network
-  - Infrastructure
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Telecom
+  - Connectivity
+description: |
+  Zayo Group is an enterprise fiber / network connectivity provider that does not
+  publish API or service pricing publicly. Commercial terms (dark fiber, wavelengths,
+  Ethernet, IP, dedicated internet, cloud connect, Tranzact API access) are quoted
+  via Zayo Sales per route, capacity, and term.
+sources:
+  - https://www.zayo.com/products/
+notes: |
+  WebFetch of zayo.com confirmed there is no public price card or self-serve developer
+  pricing — the site directs all inquiries to "Contact Us". Treated as B2B carrier
+  contact-sales.
 plans:
-  - id: zayo-group-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Zayo Group Holdings API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.zayo.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.zayo.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-    elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Zayo Group Holdings API
-  - id: zayo-group-pro
-    name: Professional
-    type: paid
-    description: Production tier for Zayo Group Holdings. Provides higher quotas, priority support, and
-      access to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
-    entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.zayo.com
-        unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://api.zayo.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
-        type: metered
-        metric: requests
-        limit: -1
-        timeFrame: month
-        geo: global
-        domains:
-          - https://api.zayo.com
-        unit: 1000
-        price: TBD
-        userMultiplied: false
-    elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Zayo Group Holdings API
-  - id: zayo-group-enterprise
-    name: Enterprise
+  - id: zayo-group-contact-sales
+    name: Contact Sales
     type: enterprise
-    description: Custom-negotiated tier for Zayo Group Holdings. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+    description: All Zayo network and Tranzact API commercial terms are quoted directly
+      by Zayo Sales based on route, capacity, term, and SLA.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Custom Commercial Terms
+        name: custom
+        type: flat
+        metric: varies
         limit: -1
-        timeFrame: month
-        geo: configurable
-        domains:
-          - https://api.zayo.com
+        timeFrame: usage
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://api.zayo.com
-        unit: 1
-        price: custom
+        price: contact sales
         userMultiplied: false
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Zayo Group Holdings API
+      - name: Dark fiber and wavelength services
+      - name: Ethernet, IP, and dedicated internet access
+      - name: Cloud connect and managed services
+      - name: Tranzact partner API enablement
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
