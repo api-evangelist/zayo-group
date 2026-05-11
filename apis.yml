@@ -30,6 +30,11 @@ apis:
 common:
   - type: Website
     url: https://www.zayo.com
+  - type: Integrations
+    url: https://www.zayo.com/partners/
+integrations:
+  - name: Become a Partner
+  - name: Request Partner Portal Access
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
