@@ -1,0 +1,44 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zayo Group API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://auth.api.zayo.com/oauth/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Network Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Validate building / address",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.zayo.com/services/location-management/v2/buildings/validation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Validate whether a building or street address is on or near Zayo's fiber\nnetwork footprint. Used as the first step before quoting a new service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,213 @@
+{
+  "item": [
+    {
+      "id": "355b294a-fdfa-4d4a-9319-cd69a4e2fc22",
+      "name": "Authentication",
+      "description": {
+        "content": "OAuth 2.0 token issuance.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "de1b696b-bd8d-4e91-8921-21ee319b0ac2",
+      "name": "Network Discovery",
+      "description": {
+        "content": "Building validation and location lookup.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6ddca2e-53d6-4bf1-aa9d-cd2a4dec7f0c",
+          "name": "Validate building / address",
+          "request": {
+            "name": "Validate building / address",
+            "description": {
+              "content": "Validate whether a building or street address is on or near Zayo's fiber\nnetwork footprint. Used as the first step before quoting a new service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                "location-management",
+                "v2",
+                "buildings",
+                "validation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"streetAddress\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ba95ceb-e5ba-40a0-826a-f90c13e1445e",
+              "name": "Validation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "location-management",
+                    "v2",
+                    "buildings",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"streetAddress\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"validated\": false,\n  \"buildingId\": \"string\",\n  \"coordinates\": {\n    \"latitude\": 2628.399967549301,\n    \"longitude\": 7921.645996496252\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1aec08ae-2e24-453d-8bb8-c4158e110d9e",
+              "name": "Missing or invalid bearer token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    "location-management",
+                    "v2",
+                    "buildings",
+                    "validation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"streetAddress\": \"<string>\",\n  \"city\": \"<string>\",\n  \"stateOrProvince\": \"<string>\",\n  \"postalCode\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.zayo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://auth.api.zayo.com/oauth/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3b4f37df-6673-46cb-a582-c5c6008fff7e",
+    "name": "Zayo Group API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zayo Group's developer API provides programmatic access to network discovery,\nquote and order, and service management capabilities for enterprise customers\nand partners. Requests are authenticated via OAuth 2.0 Client Credentials\ngrant, exchanging client credentials at the Zayo authorization server for a\nshort-lived (one-hour) Bearer access token that is then presented to the API\nendpoints. Endpoints derived from the public developer portal at\ndeveloper.zayo.com.\n\nContact Support:\n Name: Zayo Developer Portal",
+      "type": "text/plain"
+    }
+  }
+}
