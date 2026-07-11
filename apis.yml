@@ -28,12 +28,18 @@ apis:
     description: >-
       The Zayo Group Holdings API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: Authentication
+    url: authentication/zayo-group-authentication.yml
+  - type: OAuthScopes
+    url: scopes/zayo-group-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/zayo-group
   - type: Website
     url: https://www.zayo.com
   - type: Integrations
     url: https://www.zayo.com/partners/
+  - type: Blog
+    url: https://www.zayo.com/feed/
 integrations:
   - name: Become a Partner
   - name: Request Partner Portal Access
