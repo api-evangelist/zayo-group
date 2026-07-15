@@ -28,6 +28,8 @@ apis:
     description: >-
       The Zayo Group Holdings API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: AgenticAccess
+    url: agentic-access/zayo-group-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/zayo-group-vulnerability-disclosure.yml
   - type: DomainSecurity
