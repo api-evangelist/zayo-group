@@ -2,7 +2,20 @@ aid: zayo-group
 url: https://raw.githubusercontent.com/api-evangelist/zayo-group/refs/heads/main/apis.yml
 name: Zayo Group Holdings
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zayo-group.png
 tags:
   - Fiber
   - Network
@@ -13,20 +26,31 @@ created: '2026-04-19'
 modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
-  - aid: zayo-group:zayo-group-api
-    name: Zayo Group Holdings API
-    tags:
-      - Fiber
-      - Network
-      - Infrastructure
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://api.zayo.com
-    humanURL: https://developer.zayo.com
-    properties:
-      - url: https://developer.zayo.com/docs
-        type: Documentation
-    description: >-
-      The Zayo Group Holdings API provides access to platform services and data for enterprise integration and automation.
+- aid: zayo-group:zayo-group-api
+  name: Zayo Group Holdings API
+  tags:
+  - Fiber
+  - Network
+  - Infrastructure
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://api.zayo.com
+  humanURL: https://developer.zayo.com
+  properties:
+  - url: https://developer.zayo.com/docs
+    type: Documentation
+  description: >-
+    The Zayo Group Holdings API provides access to platform services and data for enterprise integration
+    and automation.
+- aid: zayo-group:zayo-group-network-discovery-api
+  name: Zayo Group Holdings Network Discovery API
+  description: Building validation and location lookup.
+  humanURL: https://developer.zayo.com
+  baseURL: https://api.zayo.com
+  tags:
+  - Network Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/zayo-group-network-discovery-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/zayo-group-agentic-access.yml
